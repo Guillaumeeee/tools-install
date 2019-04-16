@@ -1,4 +1,5 @@
 #! /bin/bash
+# http://marek.helion.pl/install/squid.html
 
 # Install dependancies
 apt-get update
