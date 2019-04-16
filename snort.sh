@@ -81,7 +81,7 @@ sed -i 's/var BLACK_LIST_PATH ..\/rules/var BLACK_LIST_PATH \/etc\/snort\/rules/
 
 sed -i 's/# output unified2: filename merged.log, limit 128, nostamp, mpls_event_types, vlan_event_types/output unified2: filename snort.log, limit 128/' /etc/snort/snort.conf
 
-sed -i 's/#include \$RULE\_PATH\local.rules/include \$RULE\_PATH\/local.rules/' /etc/snort/snort.conf
+sed -i 's/#include \$RULE\_PATH\/local.rules/include \$RULE\_PATH\/local.rules/' /etc/snort/snort.conf
 echo "include \$RULE_PATH/community.rules" >> /etc/snort/snort.conf
 
 # Test the configuration
