@@ -1,42 +1,42 @@
 #! /bin/bash
 
-# Installer les dépendances
+# Install dependancies
 apt-get install -y gcc make libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libssl-dev libnghttp2-dev libdumbnet-dev bison flex libdnet
 
-# Configurer le dossier de travail
+# Configure workdir
 mkdir /opt/snort_src && cd /opt/snort_src
 
-# Télécharger la "Data Aquisition Library"
+# Download "Data Aquisition Library" (daq)
 wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz
 
-# Décompresser l'archive
+# Untar archive
 tar xvzf daq-2.0.6.tar.gz
 cd daq-2.0.6
 
-# Configurer, compiler, installer daq
+# Configure, compile & install daq
 ./configure && make && sudo make install
 
-# Retourner dans le répertoire de travail, télécharger snort
+# Download snort
 cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.13.tar.gz
 
-# Décompresser l'archive 
+# Untar archive
 tar xvzf snort-2.9.13.tar.gz 
 cd snort-2.9.13
 
-# Configurer avec l'option sourcefire, compiler et installer 
+# Configure with sourcefire option, compile & install
 ./configure --enable-sourcefire && make && sudo make install
 
-# Mettre à jour les librairies
+# Update snort libraries
 ldconfig
 
-# Creer un lien symbolique pour ajouter le binaire dans le PATH
+# Symlink to add snort into $PATH
 ln -s /usr/local/bin/snort /usr/sbin/snort
 
-# Créer les utilsiateurs et groupes pour lancer snort
+# Create snort user & group
 groupadd snort
 useradd snort -r -s /sbin/nologin -g snort
 
-# Créer les répertoires de configuration
+# Create configuration directories
 mkdir -p /etc/snort/rules
 mkdir /var/log/snort
 mkdir /usr/local/lib/snort_dynamicrules
@@ -49,12 +49,12 @@ chown -R snort:snort /etc/snort
 chown -R snort:snort /var/log/snort
 chown -R snort:snort /usr/local/lib/snort_dynamicrules
 
-# Créer des fichiers de configuration vides
+# Create empty config files
 touch /etc/snort/rules/white_list.rules
 touch /etc/snort/rules/black_list.rules
 touch /etc/snort/rules/local.rules
 
-# Récupérer les fichiers de configuration depuis le répertoire initial
+# Get initial config files
 cp /opt/snort_src/snort-2.9.13/etc/*.conf* /etc/snort
 cp /opt/snort_src/snort-2.9.13/etc/*.map /etc/snort
 
@@ -88,4 +88,3 @@ echo "include \$RULE_PATH/community.rules" >> /etc/snort/snort.conf
 
 # Run 
 #snort -A console -i enp7s0 -u snort -g snort -c /etc/snort/snort.conf 
-
