@@ -69,8 +69,8 @@ sed -i 's/include \$RULE\_PATH/#include \$RULE\_PATH/' /etc/snort/snort.conf
 
 # edit configuration
 sed -i 's/ipvar HOME_NET any/ipvar HOME_NET 192.168.122.0\/24/' /etc/snort/snort.conf
-sed -i 's/ipvar EXTERNAL_NET any/ipvar EXTERNAL_NET !\$HOME_NET' /etc/snort/snort.conf
-sed -i 's/ipvar DNS_SERVERS \$HOME_NET/ipvar DNS_SERVERS 8.8.8.8' /etc/snort/snort.conf
+sed -i 's/ipvar EXTERNAL_NET any/ipvar EXTERNAL_NET !\$HOME_NET/' /etc/snort/snort.conf
+sed -i 's/ipvar DNS_SERVERS \$HOME_NET/ipvar DNS_SERVERS 8.8.8.8/' /etc/snort/snort.conf
 
 sed -i 's/var RULE_PATH ..\/rules/var RULE_PATH \/etc\/snort\/rules/' /etc/snort/snort.conf
 sed -i 's/var SO_RULE_PATH ..\/so_rules/var SO_RULE_PATH \/etc\/snort\/so_rules/' /etc/snort/snort.conf
