@@ -15,7 +15,7 @@ tar xvzf daq-2.0.6.tar.gz
 cd daq-2.0.6
 
 # Configure, compile & install daq
-./configure && make && sudo make install
+./configure && make && make install
 
 # Download snort
 cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.13.tar.gz
@@ -25,7 +25,7 @@ tar xvzf snort-2.9.13.tar.gz
 cd snort-2.9.13
 
 # Configure with sourcefire option, compile & install
-./configure --enable-sourcefire && make && sudo make install
+./configure --enable-sourcefire && make && make install
 
 # Update snort libraries
 ldconfig
