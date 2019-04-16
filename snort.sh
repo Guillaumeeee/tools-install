@@ -1,4 +1,5 @@
 #! /bin/bash
+# https://upcloud.com/community/tutorials/installing-snort-on-debian/
 
 # Install dependancies
 apt-get install -y gcc make libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libssl-dev libnghttp2-dev libdumbnet-dev bison flex libdnet
