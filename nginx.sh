@@ -1,7 +1,7 @@
 #! /bin/bash
 
 apt-get install -y nginx
-echo "Welcome on our default nginx site"  > /var/www/html/index.nginx-debian.html
+echo "Welcome on our default nginx site"  > /var/www/html/index.html
 
 mkdir /etc/nginx/ssl
 chown 700 /etc/nginx/ssl
@@ -11,3 +11,5 @@ openssl dhparam 2048 > dh2048.pem
 
 cp config/nginx.conf /etc/nginx/sites-available/webServ.cfg
 ln -s /etc/nginx/sites-available/webServ.cfg /etc/nginx/sites-enabled/webServ.cfg
+
+rm /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
