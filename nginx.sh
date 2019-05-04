@@ -33,3 +33,6 @@ ln -s /etc/nginx/sites-available/webServ.cfg /etc/nginx/sites-enabled/webServ.cf
 
 # Remove default config
 rm /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+# Restart nginx service
+systemctl restart nginx.service
