@@ -69,13 +69,10 @@ iptables -t filter -A PORT_SCAN -j LOG --log-prefix "[IPTABLES PORT-SCAN DROP] :
 iptables -t filter -A PORT_SCAN -j DROP
 
 # SSH
-iptables -N SSH_DROP
-iptables -A INPUT -p tcp --dport ${PORT_SSH} -m recent --update --seconds 60 --hitcount 4 --name SSH -j SSH_DROP
-iptables -A INPUT -p tcp --dport ${PORT_SSH} -m recent --set --name SSH
-iptables -A INPUT -p tcp --dport ${PORT_SSH} -m conntrack --ctstate NEW -j ACCEPT
-iptables -A SSH_DROP -m limit --limit 1/s -j LOG --log-prefix '[IPTABLES SSH BRUTEFORCE DROP] : '
-iptables -A SSH_DROP -j DROP
-
+/sbin/iptables -t filter -A INPUT -p tcp -m conntrack --ctstate NEW --dport ${SSH_PORT} -j LOG
+/sbin/iptables -t filter -A INPUT -p tcp --dport ${SSH_PORT} -m recent --rcheck --seconds 60 --hitcount 4 --name SSH -j LOG 
+/sbin/iptables -t filter -A INPUT -p tcp --dport 22 -m recent --update --seconds 160 --hitcount 2 --name SSH -j DROP
+/sbin/iptables -t filter -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set --name SSH -j ACCEPT
 # Allow established sessions to go through
 ${IPT} -t filter -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 
