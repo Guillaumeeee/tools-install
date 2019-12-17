@@ -47,5 +47,19 @@ make install
 
 # Configure naxsi
 cp /opt/naxsi-0.56/naxsi_config/naxsi_core.rules /etc/nginx/
+cp config/naxsi.conf /etc/nginx/naxsi.rules
+cp config/error.html /usr/html
 
+sed -i '/mime\.type/a include\ \/etc\/nginx\/sites-enabled\/\*\;' /etc/nginx/nginx.conf
+sed -i '/mime\.type/a include\ \/etc\/nginx\/conf\.d\/\*\.conf\;' /etc/nginx/nginx.conf
+sed -i '/mime\.type/a include\ \/etc\/nginx\/naxsi_core\.rules\;' /etc/nginx/nginx.conf
+sed -i '/^        location\ \//a include\ \/etc\/nginx\/naxsi\.rules\;' /etc/nginx/nginx.conf
 
+# Create startup script
+cp config/nginx_naxsi.service /lib/systemd/system/nginx.service
+
+# Create tmp folder
+mkdir -p /var/lib/nginx/body
+
+# Start nginx
+systemctl start nginx
