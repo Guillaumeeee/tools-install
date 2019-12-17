@@ -18,8 +18,7 @@ cd daq-2.0.6
 ./configure && make && make install
 
 # Download snort
-cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.13.tar.gz
-
+cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz
 # Untar archive
 tar xvzf snort-2.9.13.tar.gz 
 cd snort-2.9.13
