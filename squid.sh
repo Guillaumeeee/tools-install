@@ -43,8 +43,8 @@ make
 make install
 
 # Create squidguard configuration
-cp config/squidGuard.conf /etc/squigduard
-ln -s /etc/squidguard/squidGuard.conf /etc/squid3/
+#cp config/squidGuard.conf /usr/local/squigduard
+#ln -s /usr/local/squidguard/squidGuard.conf /usr/local/squid
 
 # Create squid user for file permissions (cache, certificates, logs...)
 groupadd squid
