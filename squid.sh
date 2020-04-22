@@ -3,7 +3,7 @@
 
 # Install dependancies
 apt-get update
-apt-get -y install gcc make g++ libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libnghttp2-dev libdumbnet-dev bison flex libdnet
+apt-get -y install gcc make g++ libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libnghttp2-dev libdumbnet-dev bison flex libdnet libc-bin
 
 # Download Squid 4.6 source code
 wget http://www.squid-cache.org/Versions/v4/squid-4.6.tar.gz -O /opt/squid-4.6.tar.gz
