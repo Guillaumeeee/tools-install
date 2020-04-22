@@ -33,6 +33,8 @@ cd /opt/db-18.1.32/build_unix
 ../dist/configure --prefix=/usr/local/berkeleydb
 make
 make install 
+echo “/usr/local/berkeleydb/lib” >> /etc/ld.so.conf
+ldconfig
 
 # Configure the compiler with ssl options
 cd /opt/squidGuard-1.3 
