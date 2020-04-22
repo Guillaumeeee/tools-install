@@ -3,7 +3,7 @@
 
 # Install dependancies
 apt-get update
-apt-get -y install gcc make g++ libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libnghttp2-dev libdumbnet-dev bison flex libdnet libc-bin
+apt-get -y install gcc make g++ libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-dev openssl libnghttp2-dev libdumbnet-dev bison flex libdnet libc-bin libssl libssl-dev
 
 # Download Squid 4.6 source code
 wget http://www.squid-cache.org/Versions/v4/squid-4.6.tar.gz -O /opt/squid-4.6.tar.gz
@@ -34,7 +34,7 @@ cd /opt/db-18.1.32/build_unix
 make
 make install 
 echo “/usr/local/berkeleydb/lib” >> /etc/ld.so.conf
-ldconfig
+/usr/sbin/ldconfig
 
 # Configure the compiler with ssl options
 cd /opt/squidGuard-1.3 
@@ -47,8 +47,8 @@ make install
 #ln -s /usr/local/squidguard/squidGuard.conf /usr/local/squid
 
 # Create squid user for file permissions (cache, certificates, logs...)
-groupadd squid
-useradd squid -r -s /sbin/nologin -g squid
+/usr/sbin/groupadd squid
+/usr/sbin/useradd squid -r -s /sbin/nologin -g squid
 
 # Create cache & logs directories
 mkdir -p /var/squid/cache
