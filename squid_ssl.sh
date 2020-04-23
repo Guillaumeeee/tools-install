@@ -9,10 +9,10 @@ apt-get -y install libssl1.1 libssl-dev gcc make g++
 cd /opt && wget http://www.squid-cache.org/Versions/v4/squid-4.6.tar.gz
 
 # Untar archive
-tar xvzf squid-4.6.tar.gz
+tar xvzf squid-4.11.tar.gz -C /opt
 
 # Configure the compiler with ssl options
-cd squid-4.6
+cd squid-4.11
 ./configure --with-openssl --enable-ssl --enable-ssl-crtd --disable-ipv6
 
 # Compile
