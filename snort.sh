@@ -8,7 +8,8 @@ apt-get install -y gcc make libpcre3-dev zlib1g-dev libluajit-5.1-dev libpcap-de
 mkdir /opt/snort_src && cd /opt/snort_src
 
 # Download "Data Aquisition Library" (daq)
-wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz
+wget https://www.snort.org/downloads/archive/snort/daq-2.0.6.tar.gz
+#wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz
 
 # Untar archive
 tar xvzf daq-2.0.6.tar.gz
@@ -18,7 +19,8 @@ cd daq-2.0.6
 ./configure && make && make install
 
 # Download snort
-cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz
+cd ../ && wget https://www.snort.org/downloads/archive/snort/snort-2.9.15.tar.gz
+#cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz
 # Untar archive
 tar xvzf snort-2.9.13.tar.gz 
 cd snort-2.9.13
