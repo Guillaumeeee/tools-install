@@ -3,7 +3,7 @@
 
 # Install dependancies
 apt-get update
-apt-get -y install libssl1.0-dev gcc make g++
+apt-get -y install libssl1.1 libssl-dev gcc make g++
 
 # Download Squid 4.6 source code
 cd /opt && wget http://www.squid-cache.org/Versions/v4/squid-4.6.tar.gz
