@@ -22,8 +22,8 @@ cd daq-2.0.6
 cd ../ && wget https://www.snort.org/downloads/archive/snort/snort-2.9.15.tar.gz
 #cd ../ && wget https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz
 # Untar archive
-tar xvzf snort-2.9.13.tar.gz 
-cd snort-2.9.13
+tar xvzf snort-2.9.15.tar.gz 
+cd snort-2.9.15
 
 # Configure with sourcefire option, compile & install
 ./configure --enable-sourcefire && make && make install
@@ -57,8 +57,8 @@ touch /etc/snort/rules/black_list.rules
 touch /etc/snort/rules/local.rules
 
 # Get initial config files
-cp /opt/snort_src/snort-2.9.13/etc/*.conf* /etc/snort
-cp /opt/snort_src/snort-2.9.13/etc/*.map /etc/snort
+cp /opt/snort_src/snort-2.9.15/etc/*.conf* /etc/snort
+cp /opt/snort_src/snort-2.9.15/etc/*.map /etc/snort
 
 # We will use community rules
 wget https://www.snort.org/rules/community -O /tmp/community.tar.gz
